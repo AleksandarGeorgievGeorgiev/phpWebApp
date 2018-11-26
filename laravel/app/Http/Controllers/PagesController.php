@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     public function index(){
-        $title = 'Welcome to Blogsters!';
+        $title = 'Blogsters!';
         return view('pages.index', compact('title'));
     }
     public function about(){
