@@ -7,7 +7,7 @@
             <ul class="nav">
                 <li><a class="nav-link" href="{{ url('/') }}">Home</a></li>
                 <li><a class="nav-link" href="{{ url('/about') }}">About</a></li>
-                <li><a class="nav-link" href="{{ url('/posts') }}">Blog</a></li>
+                <li><a class="nav-link" href="{{ url('/posts') }}">Posts</a></li>
             </ul>
         </div>   
     </div>
