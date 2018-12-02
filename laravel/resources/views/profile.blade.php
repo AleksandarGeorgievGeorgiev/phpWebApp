@@ -30,7 +30,7 @@
         <div class="row justify-content-center">
             <div class="profile-header-container">
                 <div class="profile-header-img rounded-circle">
-                    <img class"profile-image" src="{{ URL::to('/') }}/storage/profile_images/{{ $user->profile_image}}" />
+                    <img class="profile-image" src="{{ URL::to('/') }}/storage/profile_images/{{ $user->profile_image}}" />
                 </div>
                 <div class="middle">
                     <span class="text">{{$user->name}}</span>

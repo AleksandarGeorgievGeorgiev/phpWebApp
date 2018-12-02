@@ -12,7 +12,7 @@
                                     <a class="text-dark" href="{{ url('/posts') }}/{{$post->id}}">{{$post->title}}</a>
                                 </h3>
                                 <div class="mb-1 text-muted">
-                                    <small class="text-muted">Written on {{$post->created_at}} by</small>
+                                <small class="text-muted">Written on {{$post->created_at}} by {{Auth::user()->name}}</small>
                                 </div>
                             </div>                        
                         </div>
