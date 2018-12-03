@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Edit Post</h1>
+    <div class="jumbotron text-center">
+        <h1>Edit Post</h1>
+    </div>
     {!! Form::open(['action' => ['PostsController@update', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class="form-group">
         {{Form::label('title', 'Title')}}

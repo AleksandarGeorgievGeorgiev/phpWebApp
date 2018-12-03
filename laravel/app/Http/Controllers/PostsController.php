@@ -27,7 +27,7 @@ class PostsController extends Controller
         //$posts = Post::all();
         //$post = Post::where('title', 'Post Two')->get();
         // $posts = Post::orderBy('title', 'desc')->get();
-        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
+        $posts = Post::orderBy('created_at', 'desc')->simplePaginate(4);
         return view('posts.index')->with('posts', $posts);
     }
 
@@ -137,12 +137,14 @@ class PostsController extends Controller
             $filenameToStore = $filename.'_'.time().'.'.$extension; 
             //upload
             $path = $request->file('cover_image')->storeAs('public/cover_images', $filenameToStore);
+            // $image = Image::make('cover_image')->resize(300,200);
         } 
         //create post
         $post = Post::find($id);
         $post->title = $request->input('title');
         $post->body = $request->input('body');
         if ($request->hasFile('cover_image')) {
+            // $post->cover_image = $image->respose('jpg');
             $post->cover_image = $filenameToStore;  
         }
         $post->save();
