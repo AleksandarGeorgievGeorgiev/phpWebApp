@@ -10545,6 +10545,10 @@ a.text-dark:focus {
   height: 320px;
 }
 
+.post-image {
+  width: 50%;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

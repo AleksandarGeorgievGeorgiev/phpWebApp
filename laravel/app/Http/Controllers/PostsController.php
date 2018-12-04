@@ -15,7 +15,7 @@ class PostsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'details']]);
+        $this->middleware('auth', ['except' => ['index', 'show']]);
     }
     /**
      * Display a listing of the resource.
@@ -92,7 +92,7 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return view('posts.details')->with('post', $post);
+        return view('posts.show')->with('post', $post);
     }
 
     /**
