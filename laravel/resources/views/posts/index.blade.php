@@ -8,17 +8,27 @@
         <div class="row">
             @foreach($posts as $post)  
                     <div class="col-md-6" style="padding-top:70px">
-                        <div class="blog-body card flex-md-row mb-0 box-shadow h-md-250 border border-primary">
-                            <div class="card-body d-flex flex-column align-items-start">
-                                <h3 class="mb-2">
-                                    <a class="text-dark" href="{{ url('/posts') }}/{{$post->id}}">{{$post->title}}</a>
-                                </h3>
-                                <div class="mb-1 text-muted">
-                                <small class="text-muted">Written on {{$post->created_at}} by {{$post->user->name}}</small>
-                                </div>
-                            </div>  
-                            <img class="cover-image card-img-right flex-auto d-none d-md-block"
-                            src="{{ URL::to('/') }}/storage/cover_images/{{$post->cover_image}}" alt="Card image cap">                       
+                        <!-- Card Wider -->
+                        <div class="card-posts card card-cascade wider">
+
+                            <!-- Card image -->
+                            <div class="view view-cascade overlay">
+                                <a href="{{ url('/posts') }}/{{$post->id}}">
+                                <img  class="card-cover-image card-img-top" src="{{ URL::to('/') }}/storage/cover_images/{{$post->cover_image}}" alt="Card image cap">      
+                                <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+                            
+                            <!-- Card content -->
+                            <div class="card-body card-body-cascade text-center">
+                            
+                                <!-- Title -->
+                                <h4 class="card-title"><strong>{{$post->user->name}}</strong></h4>
+                                <!-- Subtitle -->
+                                <h5 class="blue-text pb-2"><strong>{{$post->title}}</strong></h5>
+                                <!-- Text -->
+                                <p class="card-text">Written on {{$post->created_at}}</p>
+                            </div>    
                         </div>
                     </div>                 
             @endforeach

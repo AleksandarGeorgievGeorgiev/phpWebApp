@@ -10,7 +10,10 @@
     
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -18,7 +21,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>    
+    <body>    
         @include('inc.navbar')  
         <div class="container">
             @include('inc.messages')            
@@ -29,5 +32,18 @@
         <script>
             CKEDITOR.replace( 'article-ckeditor' );
         </script>
-</body>
+        <script> 
+                $(document).ready(function(){
+                    $("#slide").click(function(){
+                        $(".content").hide(2500);
+                        $(".editable").show(2500);
+                    });
+                    $("#back").click(function(){
+                        $(".editable").hide(2500);
+                        $(".content").show(2500);
+                    })                    
+                });
+        </script> 
+        
+    </body>
 </html>

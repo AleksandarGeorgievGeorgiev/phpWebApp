@@ -16,6 +16,10 @@ Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
 Route::resource('posts', 'PostsController');
 Auth::routes();
+// Route::resource('profile', 'UserController');
 Route::get('/profile', 'UserController@index');
 Route::post('/profile','UserController@update');
 Route::get('/dashboard', 'DashboardController@index');
+Route::group(['middleware' => ['auth', 'admin']], function(){
+    Route::get('/admin', 'AdminController@index');
+});

@@ -10,13 +10,19 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+
+    //table name
+    public function users(){
+        return $users = User::all(); 
+    } 
+    
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'is_admin',
     ];
     
     /**
@@ -30,5 +36,9 @@ class User extends Authenticatable
 
     public function posts(){
         return $this->hasMany('App\Post');
+    }
+
+    public function isAdmin(){
+        return $this->is_admin;
     }
 }
