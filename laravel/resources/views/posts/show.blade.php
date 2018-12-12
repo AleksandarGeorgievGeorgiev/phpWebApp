@@ -13,7 +13,14 @@
     <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>
     <br><br>
     @if(!Auth::guest())
-        @if(Auth::user()->id === $post->user_id)
+        @if(Auth::user()->id === $post->user_id && !Auth::user()->isAdmin())
+            <a href="/web3-app/laravel/public/posts/{{$post->id}}/edit" class="btn btn-primary">Edit</a>
+            {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'float-right'])!!}
+                {{Form::hidden('_method', 'DELETE')}}
+                {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+            {!!Form::close()!!}
+        @endif
+        @if(Auth::user()->isAdmin())
             <a href="/web3-app/laravel/public/posts/{{$post->id}}/edit" class="btn btn-primary">Edit</a>
             {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'float-right'])!!}
                 {{Form::hidden('_method', 'DELETE')}}
