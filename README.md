@@ -1,2 +1,4 @@
-Please get rid of this laravel folder in the root
-add proper readme.md desc of your project (*not the official laravel readme*)
+##Our web app is actually a blog app
+You can create, update and delete your posts
+Admin can control all posts, and see all users
+Not registered visitor can only view all posts
