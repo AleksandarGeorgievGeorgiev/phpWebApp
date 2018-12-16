@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Post;
@@ -29,6 +30,8 @@ class PostsController extends Controller
         // $posts = Post::orderBy('title', 'desc')->get();
         $posts = Post::orderBy('created_at', 'desc')->simplePaginate(4);
         return view('posts.index')->with('posts', $posts);
+
+        // return PostResource::collection($posts);
     }
 
     /**
@@ -170,7 +173,7 @@ class PostsController extends Controller
         }
         $post->delete();
 
-        return redirect('/posts')->with('success', 'Post Removed');
+        return redirect('/dashboard')->with('success', 'Post Removed');
 
     }
 }

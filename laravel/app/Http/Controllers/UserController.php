@@ -78,8 +78,8 @@ class UserController extends Controller
         $this->validate($request, [
         'profile_image' => 'image|nullable|max:1999',
         ]);
+        $user = Auth::user(); 
         $updated_name =  $request->input('name');
-        
         if ($request->hasFile('profile_image')) {
             //get filename with extension
             $filenameWithExt = $request->file('profile_image')->getClientOriginalName();
@@ -94,13 +94,11 @@ class UserController extends Controller
         }else{
             $filenameToStore = 'avatar.jpg';
         }
-        $user = Auth::user();
+        $user->profile_image =  $filenameToStore;    
         if($updated_name){
             $user->name = $updated_name;
         }
-        $user->profile_image =  $filenameToStore;
         $user->save();
-
         return redirect('/profile')->with('success');
     }
     /**

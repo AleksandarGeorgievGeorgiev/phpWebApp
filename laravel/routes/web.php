@@ -23,3 +23,4 @@ Route::get('/dashboard', 'DashboardController@index');
 Route::group(['middleware' => ['auth', 'admin']], function(){
     Route::get('/admin', 'AdminController@index');
 });
+Route::get('pdf/{id}', 'PdfController@generatePDF');

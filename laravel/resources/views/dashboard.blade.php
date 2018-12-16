@@ -20,16 +20,18 @@
                         <table class="table table-striped">
                             <tr>
                                 <th>Title</th>
-                                <th></th>
-                                <th></th>
+                                <th>Edit</th>
+                                <th>Download PDF</th>
+                                <th>Delete</th>
                             </tr>
                             @foreach($posts as $post)
                             <tr>
                                 <td>{{$post->title}}</td>
                                 
                                 <td><a href="posts/{{$post->id}}/edit" class="btn btn-info ">Edit</a></td>
+                                <td><a href="{{ url('/pdf') }}/{{$post->id}}" class="btn btn-danger">Create PDF</a></td>
                                 <td>
-                                    {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST', 'class' => 'float-right'])!!}
+                                    {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' => 'POST'])!!}
                                         {{Form::hidden('_method', 'DELETE')}}
                                         {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
                                     {!!Form::close()!!}
