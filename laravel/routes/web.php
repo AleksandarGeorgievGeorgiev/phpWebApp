@@ -21,6 +21,7 @@ Route::get('/profile', 'UserController@index');
 Route::post('/profile','UserController@update');
 Route::get('/dashboard', 'DashboardController@index');
 Route::group(['middleware' => ['auth', 'admin']], function(){
-    Route::get('/admin', 'AdminController@index');
+    Route::get('admin', 'AdminController@index');
 });
 Route::get('pdf/{id}', 'PdfController@generatePDF');
+Route::get('excel', 'UserController@export');
