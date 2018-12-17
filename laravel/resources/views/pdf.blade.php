@@ -16,15 +16,3 @@
     <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>
 </body>
 </html>
-
-
-{{-- @extends('layouts.app')
-
-@section('content')
-    <h1>{{$post->title}}</h1>
-    <br>
-    <div>
-        {!!$post->body!!}
-    </div>
-    <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>
-@endsection --}}

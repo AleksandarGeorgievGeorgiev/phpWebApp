@@ -91,10 +91,13 @@ class UserController extends Controller
             $filenameToStore = $filename.'_'.time().'.'.$extension; 
             //upload
             $path = $request->file('profile_image')->storeAs('public/profile_images', $filenameToStore);
-        }else{
-            $filenameToStore = 'avatar.jpg';
         }
-        $user->profile_image =  $filenameToStore;    
+        // else{
+        //      $filenameToStore = 'avatar.jpg';
+        // }
+        if ($request->hasFile('profile_image')) {
+            $user->profile_image = $filenameToStore;    
+        }
         if($updated_name){
             $user->name = $updated_name;
         }

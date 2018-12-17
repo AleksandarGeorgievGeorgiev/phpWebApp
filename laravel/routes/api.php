@@ -17,19 +17,19 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// //List posts
-// Route::get('/posts', 'PostsController@index');
+//List posts
+Route::get('posts', 'ApiPostController@index');
 
-// //List single posts
-// Route::get('/post{id}', 'PostsController@show');
+//List single posts
+Route::get('/post/{id}', 'ApiPostController@show');
 
-// //Create new post
-// Route::post('/post', 'PostsController@store');
+//Create new post
+Route::post('/post', 'ApiPostController@store');
 
-// //Update post
-// Route::put('/post', 'PostsController@update');
+//Update post
+Route::put('/post/{id}', 'ApiPostController@update');
 
-// //Delete post
-// Route::delete('/post{id}', 'PostsController@delete');
+//Delete post
+Route::delete('/post/{id}', 'ApiPostController@destroy');
 
 
