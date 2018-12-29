@@ -15,7 +15,7 @@
                     <img src="" alt="">
                     <a class="btn btn-primary float-right" href="{{url('/posts/create')}}">Create Post</a>
                     <br><br>        
-                    <p style="text-align:center">{{ Auth::user()->name }} these are your posts!</p>
+                    <p style="text-align:center"><strong>{{ Auth::user()->name }}</strong>, these are your posts!</p>
                     @if(count($posts) > 0)
                         <table class="table table-striped">
                                 <tr>

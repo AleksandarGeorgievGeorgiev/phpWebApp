@@ -12,7 +12,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <p style="text-align:center">{{ Auth::user()->name }} these are all users!</p>
+                    <p style="text-align:center"><strong>{{ Auth::user()->name }}</strong>, these are all users!</p>
                     @if(Auth::user()->users() != null)
                         <table class="table table-striped">
                             <tr>
