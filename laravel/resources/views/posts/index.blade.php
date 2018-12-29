@@ -23,7 +23,7 @@
                             <div class="card-body card-body-cascade text-center">
                             
                                 <!-- Title -->
-                                <h4 class="card-title"><strong>{{$post->user->name}}</strong></h4>
+                                <h4 class="card-title"><strong>{{$post->name}}</strong></h4>
                                 <!-- Subtitle -->
                                 <h5 class="blue-text pb-2"><strong>{{$post->title}}</strong></h5>
                                 <!-- Text -->
