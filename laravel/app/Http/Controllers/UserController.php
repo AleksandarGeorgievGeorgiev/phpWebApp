@@ -106,6 +106,29 @@ class UserController extends Controller
         $user->save();
         return redirect('/profile')->with('success');
     }
+
+    public function deleteProfile() {
+        $currentUser = Auth::user();
+        User::where("email", $currentUser->email)->delete();
+
+        return redirect('/login');
+    }
+
+    public function restoreProfile($email)
+    {
+        $user = User::withTrashed()->where("email", $email)->first();
+        $user -> restore();
+        return redirect('/admin');
+    }
+
+    public function handleAdminRights($email) {
+        $user = User::withTrashed()->where("email", $email)->first();
+        $user->is_admin = !$user->is_admin;
+        $user->save();
+
+        return redirect('/admin');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -114,7 +137,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::where("id", $id)->delete();
+        return redirect('/admin');
     }
     public function export() 
     {

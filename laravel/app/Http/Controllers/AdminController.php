@@ -16,7 +16,8 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('admin_dashboard');
+        $users = User::withTrashed()->get();
+        return view('admin_dashboard', ['users' => $users]);
     }
 
     /**

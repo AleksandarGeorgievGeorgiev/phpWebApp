@@ -44,17 +44,18 @@
             <div class="editable" style="display:none">
                 Edit user stats
                 <br>
-                    {!!Form::open(['action' => ['UserController@update', $user->id], 'method' => 'POST', 'enctype'=>'multipart/form-data'])!!}
-                        {{-- <input class="form-control input justify-content-center" type="text" placeholder="username">
-                        <br> --}}
-                        {{Form::text('name', '', ['class' => 'username form-control', 'placeholder' => 'username'])}}
-                        <br>
-                        <div class="form-group">
-                            {{Form::file('profile_image')}}
-                        </div>
-                        {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
-                    {!!Form::close()!!}
-                </div>
+                {!!Form::open(['action' => ['UserController@update', $user->id], 'method' => 'POST', 'enctype'=>'multipart/form-data'])!!}
+                    {{-- <input class="form-control input justify-content-center" type="text" placeholder="username">
+                    <br> --}}
+                    {{Form::text('name', '', ['class' => 'username form-control', 'placeholder' => 'username'])}}
+                    <br>
+                    <div class="form-group">
+                        {{Form::file('profile_image')}}
+                    </div>
+                    {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+                    <a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete the account?')"  href="{{URL::to('/profile/delete')}}">Delete Account</a>
+                {!!Form::close()!!}
+            </div>
         </aside>
     </div>
 @endsection
