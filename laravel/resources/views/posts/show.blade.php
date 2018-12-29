@@ -12,7 +12,9 @@
     </div>
     <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>
     <br><br>
-    @if(!Auth::guest())
+    @if(!Auth::guest() && 
+        Auth::user()->id === $post->user_id || 
+        Auth::user()->isAdmin())
         <table class="table table-striped">
             <tr>
                 <th>Edit</th>
