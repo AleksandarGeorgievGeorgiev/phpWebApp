@@ -13,7 +13,7 @@
                         </div>
                     @endif
                     @if(Auth::user()->isAdmin())
-                        <a href="{{ url('/excel') }}" class="btn btn-warning pull-left">Export</a>
+                        <a href="{{ url('/excel') }}" class="btn btn-warning pull-left">Users Excel Export</a>
                     @endif
                     <a class="btn btn-primary float-right" href="{{url('/posts/create')}}">Create Post</a>
                     <br><br>        
