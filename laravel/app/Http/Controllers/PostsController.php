@@ -107,11 +107,6 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-
-        // if(auth()->user()->id !== $post->user_id && !auth()->user()->isAdmin()){
-        //     return redirect('/posts')->with('error', 'Unauthorized page');
-        // }
-
         return view('posts.edit')->with('post', $post);
     }
 
@@ -164,9 +159,10 @@ class PostsController extends Controller
     {
         $post = Post::find($id);
 
-        if(auth()->user()->id !== $post->user_id){
+        if(auth()->user()->id !== $post->user_id && !auth()->user()->isAdmin()){
             return redirect('/posts')->with('error', 'Unauthorized page');
         }
+
         if($post->cover_image !== 'noimage.jpg'){
             Storage::delete('public/cover_images'. $post->cover_image);
         }

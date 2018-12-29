@@ -2,7 +2,7 @@
 
 @section('content')
     <br>
-    <a href="/web3-app/laravel/public/posts" class="btn btn-primary">Go Back</a>   
+    <a href="/posts" class="btn btn-primary">Go Back</a>   
     <br><br>
     <h1>{{$post->title}}</h1>
     <img class="card-img flex-auto d-none d-md-block post-image" src="{{ URL::to('/') }}/storage/cover_images/{{$post->cover_image}}" alt="Card image cap">
@@ -10,7 +10,7 @@
     <div>
         {!!$post->body!!}
     </div>
-    <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>
+    <small>Written on {{$post->created_at}} by {{$post->name}}</small>
     <br><br>
     @if(!Auth::guest() && 
         Auth::user()->id === $post->user_id || 
@@ -23,7 +23,7 @@
             </tr>
             <tr>
                 <td>
-                    <a href="/web3-app/laravel/public/posts/{{$post->id}}/edit" class="btn btn-primary">Edit</a>
+                    <a href="/posts/{{$post->id}}/edit" class="btn btn-primary">Edit</a>
                 </td>
                 <td><a href="{{ url('/pdf') }}/{{$post->id}}" class="btn btn-danger">Create PDF</a></td>
                 <td>
