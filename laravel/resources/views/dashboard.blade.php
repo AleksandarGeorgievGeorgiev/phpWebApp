@@ -12,7 +12,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <img src="" alt="">
+                    @if(Auth::user()->isAdmin())
+                        <a href="{{ url('/excel') }}" class="btn btn-warning pull-left">Export</a>
+                    @endif
                     <a class="btn btn-primary float-right" href="{{url('/posts/create')}}">Create Post</a>
                     <br><br>        
                     <p style="text-align:center"><strong>{{ Auth::user()->name }}</strong>, these are your posts!</p>
@@ -38,18 +40,6 @@
                                     </tr>
                                 @endforeach
                         </table>
-                        @if(Auth::user()->isAdmin())
-                            <table class="table table-striped">                              
-                                <tr>
-                                    <th>Export Excel</th>
-                                    <th>Users Overview</th>
-                                </tr>
-                                <tr>
-                                    <td><a href="{{ url('/excel') }}" class="btn btn-warning">Export</a></td>
-                                    <td><a href="{{ url('/admin') }}" class="btn btn-warning">Overview</a></td>
-                                </tr>
-                            </table>
-                        @endif
                     @else
                         <p>You have no posts !</p>
                     @endif

@@ -27,6 +27,9 @@
                             @csrf
                         </form>
                         <a class="dropdown-item text-primary" href="{{ url('/dashboard') }}">Dashboard</a>  
+                        @if(Auth::user()->isAdmin())
+                            <a class="dropdown-item text-primary" href="{{ url('/admin') }}">Users</a>  
+                        @endif
                         <a class="dropdown-item text-danger" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
