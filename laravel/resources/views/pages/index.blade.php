@@ -5,6 +5,6 @@
     <h2>{{$title}}</h2>
 </div>
 <div id="image-homepage">
-    <img id="loading" src="{{ URL::to('/') }}/storage/logo.png">
+    <img id="loading" src="{{ URL::to('/') }}/storage/logo.png" height="20%">
 </div>
 @endsection
