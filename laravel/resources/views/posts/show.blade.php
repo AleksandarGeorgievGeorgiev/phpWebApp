@@ -10,7 +10,7 @@
     <div>
         {!!$post->body!!}
     </div>
-    <small>Written on {{$post->created_at}} by {{$post->name}}</small>
+    <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>
     <br><br>
     @if(!Auth::guest())
         @if(Auth::user()->id === $post->user_id || 
