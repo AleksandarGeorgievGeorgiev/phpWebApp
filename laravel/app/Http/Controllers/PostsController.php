@@ -8,6 +8,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Storage;
 use App\Post;
 use App\Http\Resources\Post as PostResource;
+use Image;
 
 class PostsController extends Controller
 {
@@ -69,6 +70,7 @@ class PostsController extends Controller
             //Filename to store
             $filenameToStore = $filename.'_'.time().'.'.$extension; 
             //upload
+            Image::make($request->file('cover_image'))->pixelate(12)->save(public_path('/storage/cover_images/m'.$filenameToStore));
             $path = $request->file('cover_image')->storeAs('public/cover_images', $filenameToStore);
         } else {
             $filenameToStore = 'noimage.jpg';
@@ -134,6 +136,7 @@ class PostsController extends Controller
             //Filename to store
             $filenameToStore = $filename.'_'.time().'.'.$extension; 
             //upload
+            Image::make($request->file('cover_image'))->pixelate(12)->save(public_path('/storage/cover_images/m'.$filenameToStore));
             $path = $request->file('cover_image')->storeAs('public/cover_images', $filenameToStore);
             // $image = Image::make('cover_image')->resize(300,200);
         } 

@@ -14,7 +14,12 @@
                             <!-- Card image -->
                             <div class="view view-cascade overlay">
                                 <a href="{{ url('/posts') }}/{{$post->id}}">
-                                <img  class="card-cover-image card-img-top" src="{{ URL::to('/') }}/storage/cover_images/{{$post->cover_image}}" alt="Card image cap">      
+                                <img  
+                                    class="card-cover-image card-img-top" 
+                                    src="/storage/cover_images/{{$post->cover_image}}" 
+                                    onmouseover="this.src='/storage/cover_images/m{{$post->cover_image}}'"
+                                    onmouseout="this.src='/storage/cover_images/{{$post->cover_image}}'"
+                                    alt="Card image cap">      
                                 <div class="mask rgba-white-slight"></div>
                                 </a>
                             </div>
